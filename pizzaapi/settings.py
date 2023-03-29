@@ -32,10 +32,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'order.apps.OrderConfig',
     'authentication.apps.AuthenticationConfig',
-    'rest_framework'
-
-
+    'rest_framework',
+    'phonenumber_field'
 ]
+
+AUTH_USER_MODEL = 'authentication.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
