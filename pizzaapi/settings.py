@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'order.apps.OrderConfig',
     'authentication.apps.AuthenticationConfig',
     'rest_framework',
-    'phonenumber_field',
+    # 'phonenumber_field',
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
