@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import gettext_lazy as _
-from phonenumber_field.modelfields import PhoneNumberField
+# from phonenumber_field.modelfields import PhoneNumberField
 from django.db import models
 # Create your models here.
 
@@ -37,7 +37,7 @@ class MyUserManager(BaseUserManager):
 class User(AbstractUser):
     username = models.CharField(max_length=35,unique=True)
     email = models.EmailField(max_length=80,unique=True)
-    phone_number = PhoneNumberField(null=False,unique=True)
+    phone_number = models.CharField(max_length=14)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username','phone_number']
