@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.response import Response
-from .serializers import UserCreationSerializer
+from . import serializers
+
 
 # Create your views here.
 
@@ -12,7 +13,7 @@ class HelloAuthView(generics.GenericAPIView):
 
 
 class UserCreateView(generics.GenericAPIView):
-    serializer_class = serializer.UserCreationSerializer
+    serializer_class = serializers.UserCreationSerializer
     def post(self,request):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
