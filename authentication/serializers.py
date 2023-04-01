@@ -3,10 +3,10 @@ from .models import User
 
 
 class UserCreationSerializer(serializers.ModelSerializer):
-    username = serializers.CharField(max_length=35,unique=True)
-    email = serializers.EmailField(max_length=80,unique=True)
-    phone_number = serializers.CharField(max_length=14,unique=True)
-    password = serializers.CharField(max_length=8,unique=True)
+    username = serializers.CharField(max_length=35)
+    email = serializers.EmailField(max_length=80)
+    phone_number = serializers.CharField(max_length=14)
+    password = serializers.CharField(max_length=8)
 
     class Meta:
         model = User
