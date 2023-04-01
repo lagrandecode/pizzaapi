@@ -9,8 +9,8 @@ class UserCreationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(max_length=8)
 
     class Meta:
-        model = User
-        fields = ['username','email','phone_number','password']
+        model=User
+        fields=['username','email','phone_number','password']
 
         def validate(self,attrs):
             username_exists=User.objects.filter(username=attrs['username']).exists()
@@ -18,7 +18,7 @@ class UserCreationSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError(detail='User with username exist')
 
             email_exists=User.objects.filter(username=attrs['email']).exists()
-            if email_exists:
+            if email_exists: 
                 raise serializers.ValidationError(detail='User with email exist')
 
             phone_number_exists=User.objects.filter(username=attrs['phone_number']).exists()
