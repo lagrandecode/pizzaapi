@@ -40,8 +40,8 @@ class User(AbstractUser):
     email = models.EmailField(max_length=80)
     phone_number = models.CharField(max_length=14)
 
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email','phone_number']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username','phone_number']
     objects = MyUserManager()
 
     def __str__(self):
