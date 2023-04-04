@@ -2,6 +2,7 @@
 
 from pathlib import Path
 from datetime import timedelta
+# import djoser
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -33,19 +34,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'order.apps.OrderConfig',
     'authentication.apps.AuthenticationConfig',
-
-#third party application
     'rest_framework',
     'djoser',
-    # 'phonenumber_field',
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
 
 REST_FRAMEWORK = {
     'NON_FIELD_ERRORS_KEY':'error',
-    'DEFAULT_AUTHENTICATION_CLASSES':(
-    'rest_framework.authentication.TokenAuthentication',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+    'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
 
