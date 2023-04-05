@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import User
 
 
+
 class UserCreationSerializer(serializers.ModelSerializer):
     username = serializers.CharField(max_length=35)
     email = serializers.EmailField(max_length=80)

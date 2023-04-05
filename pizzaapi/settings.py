@@ -35,7 +35,9 @@ INSTALLED_APPS = [
     'order.apps.OrderConfig',
     'authentication.apps.AuthenticationConfig',
     'rest_framework',
-    'djoser',
+    'rest_framework_simplejwt.token_blacklist',
+    # 'rest_framework.authtoken'
+    # 'djoser'
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
@@ -44,7 +46,7 @@ REST_FRAMEWORK = {
     'NON_FIELD_ERRORS_KEY':'error',
     'DEFAULT_AUTHENTICATION_CLASSES': (
     'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
+    )
 }
 
 SIMPLE_JWT = {
