@@ -35,9 +35,9 @@ INSTALLED_APPS = [
     'order.apps.OrderConfig',
     'authentication.apps.AuthenticationConfig',
     'rest_framework',
-    'rest_framework_simplejwt.token_blacklist',
+    # 'rest_framework_simplejwt.token_blacklist',
     # 'rest_framework.authtoken'
-    # 'djoser'
+    'djoser',
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
@@ -53,6 +53,7 @@ SIMPLE_JWT = {
    'AUTH_HEADER_TYPES': ('Bearer',),
    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+   "BLACKLIST_AFTER_ROTATION": False,
 }
 
 MIDDLEWARE = [
