@@ -13,7 +13,7 @@ class OrderCreateListView(generics.GenericAPIView):
     def get(self,request):
         order = Order.objects.all()
         serializer = self.serializer_class(order,many=True)
-        return Response(data=serializer.data,status=status.HTTP_200_OK)
+        return Response(serializer.data,status=status.HTTP_200_OK)
 
     def post(self,request):
         pass
