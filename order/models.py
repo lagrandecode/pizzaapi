@@ -19,7 +19,7 @@ class Order(models.Model):
         ('DELIVERED','Delivered'),
     )
     status = models.CharField(max_length=20,choices=ORDER_STATUS,default=[0][0])
-    quantity = models.PositiveIntegerField()
+    quantity = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
