@@ -33,5 +33,4 @@ class UpdateOrderSerializer(serializers.ModelSerializer):
 
 
 
-class OrderView(serializers.ModelSerializer):
-    
+

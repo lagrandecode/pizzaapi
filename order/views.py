@@ -4,9 +4,12 @@ from rest_framework.response import Response
 from . import serializers
 from .models import Order
 from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth import get_user_model
 
 # Create your views here.
 
+
+User = get_user_model()
 
 class OrderCreateListView(generics.GenericAPIView):
     serializer_class = serializers.OrderSerializer
@@ -56,4 +59,11 @@ class UpdateOrderStatus(generics.GenericAPIView):
             return Response(data=serializer.data,status=status.HTTP_200_OK)
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
-        
+
+class OrderView(generics.GenericAPIView):
+    serializer_class = serializers.OrderDetailSerializer
+    def get(self,request,pk):
+        user = User.objects.get(id=pk)
+        order = Order.objects.all().filter(customer=user)
+        serializer = self.serializer_class(order,many=True)
+        return Response(serializer.data,status=status.HTTP_200_OK)
