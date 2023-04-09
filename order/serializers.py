@@ -11,3 +11,14 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Order
         fields = ['size','status','quantity']
+
+
+
+class OrderDetailSerializer(serializers.ModelSerializer):
+    size = serializers.CharField()
+    status = serializers.CharField(default='PENDING')
+    quantity = serializers.IntegerField()
+
+    class Meta: 
+        model = Order
+        fields = ['size','status','quantity']
