@@ -3,7 +3,7 @@ from rest_framework import generics,status
 from rest_framework.response import Response
 from . import serializers
 from .models import Order
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated,IsAuthenticatedOrReadOnly,IsAdminUser
 from django.contrib.auth import get_user_model
 
 # Create your views here.
@@ -31,6 +31,7 @@ class OrderCreateListView(generics.GenericAPIView):
 
 class OrderDetailView(generics.GenericAPIView):
     serializer_class = serializers.OrderDetailSerializer
+    permission_classes = [IsAdminUser]
     def get(self,request,pk):
         order = get_object_or_404(Order,id=pk) 
         serializer = self.serializer_class(order)
