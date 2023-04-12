@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     # 'rest_framework_simplejwt.token_blacklist',
     # 'rest_framework.authtoken'
     'djoser',
+    'drf_yasg',
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
