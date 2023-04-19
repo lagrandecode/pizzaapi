@@ -39,9 +39,10 @@ class User(AbstractUser):
     username = models.CharField(max_length=35,unique=True)
     email = models.EmailField(max_length=80,unique=True)
     phone_number = models.CharField(max_length=14)
+    address = models.CharField(max_length=50)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username','phone_number']
+    REQUIRED_FIELDS = ['username','phone_number','address']
     objects = MyUserManager()
 
     def __str__(self):
