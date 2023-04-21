@@ -20,7 +20,9 @@ class Order(models.Model):
     )
     status = models.CharField(max_length=20,choices=ORDER_STATUS,default=[0][0])
     quantity = models.IntegerField()
+    email = models.EmailField(max_length=80)
     address = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=14)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
