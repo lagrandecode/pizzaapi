@@ -52,6 +52,7 @@ class OrderDetailView(generics.GenericAPIView):
 
 class UpdateOrderStatus(generics.GenericAPIView):
     serializer_class = serializers.UpdateOrderSerializer
+    permission_classes = [IsAdminUser]
     def put(self,request,pk):
         order = get_object_or_404(Order,id=pk)
         serializer = self.serializer_class(data=request.data,instance=order)
@@ -63,6 +64,7 @@ class UpdateOrderStatus(generics.GenericAPIView):
 
 class OrderView(generics.GenericAPIView):
     serializer_class = serializers.OrderDetailSerializer
+    permission_classes = [IsAuthenticated]
     def get(self,request,pk):
         user = User.objects.get(id=pk)
         order = Order.objects.all().filter(customer=user)
@@ -71,6 +73,7 @@ class OrderView(generics.GenericAPIView):
 
 class OrderDetailSpecificView(generics.GenericAPIView):
     serializer_class = serializers.OrderDetailSerializer
+    permission_classes = [IsAdminUser]
     def get(self,request,user_id,order_id):
         user = User.objects.get(pk=user_id)
         order = Order.objects.all().filter(customer=user).get(pk=order_id)
